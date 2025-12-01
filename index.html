@@ -1,1 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Video Localizer | RU to EN</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
 
+    <nav class="navbar">
+        <div class="logo">Lingua<span>Flow</span> Enterprise</div>
+        <div class="user-profile">Admin Workspace</div>
+    </nav>
+
+    <main class="container">
+        <!-- Upload Section -->
+        <section id="upload-section" class="upload-zone">
+            <div class="drop-area" id="drop-area">
+                <svg class="upload-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+                <h3>Upload Russian Video</h3>
+                <p>Drag & drop MP4, MOV, or WEBM files here</p>
+                <input type="file" id="file-input" accept="video/*" hidden>
+                <button class="btn btn-primary" onclick="document.getElementById('file-input').click()">Browse Files</button>
+            </div>
+            
+            <div class="progress-container hidden" id="progress-container">
+                <div class="progress-info">
+                    <span id="progress-status">Uploading...</span>
+                    <span id="progress-percent">0%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="progress-bar"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workspace Section (Hidden initially) -->
+        <section id="workspace-section" class="workspace hidden">
+            <div class="video-column">
+                <div class="video-wrapper">
+                    <video id="main-video" controls playsinline>
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="controls-area">
+                    <button id="download-vtt" class="btn btn-secondary">Download .VTT</button>
+                    <button id="reset-app" class="btn btn-danger">Start Over</button>
+                </div>
+            </div>
+
+            <div class="transcript-column">
+                <div class="transcript-header">
+                    <h4>Generated Subtitles (English)</h4>
+                    <span class="badge">AI Processed</span>
+                </div>
+                <div class="transcript-list" id="transcript-list">
+                    <!-- Transcript items injected here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
